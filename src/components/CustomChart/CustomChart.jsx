@@ -1,22 +1,9 @@
 /* eslint-disable react/prop-types */
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from "recharts";
-
+import { getReadList, getWishList } from "../../utility/localStorage";
+import { useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
 const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
-
-const data = [
-  {
-    name: "Read List Book's Page",
-    uv: 8000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "Wish List Book's Page",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-];
 
 const getPath = (x, y, width, height) => {
   return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${
@@ -36,6 +23,44 @@ const TriangleBar = (props) => {
 };
 
 export default function CustomChart() {
+  const [readBooks, setReadBooks] = useState([]);
+  const storedId = getReadList();
+  const [wishedBooks, setWishedBooks] = useState([]);
+  const wishlistStoredId = getWishList();
+
+  const booksData = useLoaderData();
+
+  useEffect(() => {
+    const uniqueIds = Array.from(new Set(storedId));
+    const newReadBooks = uniqueIds
+      .map((bookId) => booksData.find((item) => item.id === bookId))
+      .filter(Boolean);
+    setReadBooks(newReadBooks);
+  }, [storedId, booksData]);
+
+  useEffect(() => {
+    const uniqueIds = Array.from(new Set(wishlistStoredId));
+    const newWishBooks = uniqueIds
+      .map((bookId) => booksData.find((item) => item.id === bookId))
+      .filter(Boolean);
+    setWishedBooks(newWishBooks);
+  }, [wishlistStoredId, booksData]);
+
+  const data = [
+    {
+      name: "Read List Book's Page",
+      uv: readBooks.reduce((acc, cur) => acc + cur.pages, 0),
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: "Wish List Book's Page",
+      uv: wishedBooks.reduce((acc, cur) => acc + cur.pages, 0),
+      pv: 1398,
+      amt: 2210,
+    },
+  ];
+
   return (
     <div className="py-20 px-5 rounded-lg bg-gray-200">
       <BarChart
