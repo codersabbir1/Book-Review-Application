@@ -1,7 +1,11 @@
+import FeedBackContent from "../../components/FeedBackContent/FeedBackContent";
+
 function Feedback() {
   return (
     <div className="py-10">
-      <div className="container mx-auto px-4">FeedBack Content</div>
+      <div className="container mx-auto px-4">
+        <FeedBackContent />
+      </div>
     </div>
   );
 }
