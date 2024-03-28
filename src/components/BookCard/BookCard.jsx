@@ -2,9 +2,11 @@
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineRestorePage } from "react-icons/md";
 import { IoPeopleOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 function BookCard({ book }) {
   const {
+    id,
     image,
     bookName,
     author,
@@ -15,6 +17,10 @@ function BookCard({ book }) {
     category,
     rating,
   } = book;
+  const navigate = useNavigate();
+  const handleBookDetails = (id) => {
+    navigate(`/${id}`);
+  };
   return (
     <div className="  grid grid-cols-4 gap-4 rounded-2xl p-4 border">
       <div className="bg-slate-200 flex justify-center items-center py-4 rounded-xl">
@@ -56,7 +62,10 @@ function BookCard({ book }) {
           <p className="py-2 px-6 rounded-full text-base  bg-orange-100 text-[#FFAC33]">
             Rating: {rating}
           </p>
-          <p className="py-2 px-6 rounded-full text-base  bg-success text-white">
+          <p
+            onClick={() => handleBookDetails(id)}
+            className="py-2 px-6 rounded-full text-base  bg-success text-white cursor-pointer"
+          >
             View Details
           </p>
         </div>
