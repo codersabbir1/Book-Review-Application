@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from "recharts";
 import { getReadList, getWishList } from "../../utility/localStorage";
@@ -36,7 +37,7 @@ export default function CustomChart() {
       .map((bookId) => booksData.find((item) => item.id === bookId))
       .filter(Boolean);
     setReadBooks(newReadBooks);
-  }, [storedId, booksData]);
+  }, [booksData]);
 
   useEffect(() => {
     const uniqueIds = Array.from(new Set(wishlistStoredId));
@@ -44,7 +45,7 @@ export default function CustomChart() {
       .map((bookId) => booksData.find((item) => item.id === bookId))
       .filter(Boolean);
     setWishedBooks(newWishBooks);
-  }, [wishlistStoredId, booksData]);
+  }, [booksData]);
 
   const data = [
     {
@@ -64,7 +65,7 @@ export default function CustomChart() {
   return (
     <div className="py-20 px-5 rounded-lg bg-gray-200">
       <BarChart
-        width={1000}
+        width={800}
         height={400}
         data={data}
         margin={{

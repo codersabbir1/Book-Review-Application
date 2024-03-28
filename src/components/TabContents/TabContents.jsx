@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -21,7 +22,7 @@ function TabContents() {
       .map((bookId) => data.find((item) => item.id === bookId))
       .filter(Boolean);
     setReadBooks(newReadBooks);
-  }, [storedId, data]);
+  }, [data]);
 
   useEffect(() => {
     const uniqueIds = Array.from(new Set(wishlistStoredId));
@@ -29,7 +30,13 @@ function TabContents() {
       .map((bookId) => data.find((item) => item.id === bookId))
       .filter(Boolean);
     setWishedBooks(newWishBooks);
-  }, [wishlistStoredId, data]);
+  }, [data]);
+
+  const dataUnavailable = (
+    <div className="text-center font-bold text-3xl py-8 text-orange-600">
+      <h1>No data Available</h1>
+    </div>
+  );
 
   return (
     <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
@@ -41,9 +48,11 @@ function TabContents() {
         <div className="py-5">
           <div className="container mx-auto">
             <div className="flex flex-col gap-4 w-full">
-              {readBooks.map((item) => (
-                <BookCard book={item} key={item.id} />
-              ))}
+              {readBooks.length > 0
+                ? readBooks.map((item) => (
+                    <BookCard book={item} key={item.id} />
+                  ))
+                : dataUnavailable}
             </div>
           </div>
         </div>
@@ -51,9 +60,11 @@ function TabContents() {
       <TabPanel>
         <div className="container mx-auto">
           <div className="flex flex-col gap-4 w-full">
-            {wishedBooks.map((book) => (
-              <BookCard key={book.id} book={book} />
-            ))}
+            {wishedBooks.length > 0
+              ? wishedBooks.map((book) => (
+                  <BookCard key={book.id} book={book} />
+                ))
+              : dataUnavailable}
           </div>
         </div>
       </TabPanel>
