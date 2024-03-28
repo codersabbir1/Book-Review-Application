@@ -15,6 +15,9 @@ function Navbar() {
       <li className="text-lg font-normal">
         <NavLink to="/about">About</NavLink>
       </li>
+      <li className="text-lg font-normal">
+        <NavLink to="/feedback">FeedBack</NavLink>
+      </li>
     </>
   );
 
