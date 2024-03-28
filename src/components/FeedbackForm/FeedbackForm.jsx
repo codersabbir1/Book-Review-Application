@@ -18,7 +18,7 @@ function FeedbackForm() {
         onSubmit={handleSubmit}
         className="w-full mx-auto flex flex-col workSans text-lg"
       >
-        <label htmlFor="feedback" className="block mt-4">
+        <label htmlFor="feedback" className="block mt-4 text-start">
           Feedback:
         </label>
         <textarea
@@ -27,10 +27,10 @@ function FeedbackForm() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Enter your feedback"
-          className="textarea textarea-bordered mt-1 mb-4"
+          className="textarea textarea-bordered mt-1 mb-4 "
         ></textarea>
 
-        <label htmlFor="name" className="block">
+        <label htmlFor="name" className="block text-start">
           Your Name:
         </label>
         <input
@@ -42,7 +42,7 @@ function FeedbackForm() {
           className="input input-bordered mt-1 mb-4"
         />
 
-        <label htmlFor="email" className="block">
+        <label htmlFor="email" className="block text-start">
           Your Email:
         </label>
         <input
@@ -54,7 +54,7 @@ function FeedbackForm() {
           className="input input-bordered mt-1 mb-4"
         />
 
-        <label htmlFor="rating" className="block">
+        <label htmlFor="rating" className="block text-start">
           Rate your experience:
         </label>
         <select
