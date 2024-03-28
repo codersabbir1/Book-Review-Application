@@ -10,3 +10,10 @@ body {
 .workSans {
   font-family: "Work Sans", sans-serif;
 }
+
+.active {
+  color: rgba(0, 128, 0, 0.836) !important;
+  border: 1px solid rgba(0, 128, 0, 0.836) !important;
+  background-color: transparent !important;
+  font-weight: 600 !important;
+}

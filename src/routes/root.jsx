@@ -1,11 +1,20 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Root() {
+  const navigation = useNavigation();
+  const loading = (
+    <div className="pt-14 text-center text-3xl ">
+      <p>Loading . . . </p>
+    </div>
+  );
   return (
     <>
       <Navbar />
-      <Outlet />
+      {navigation.state === "loading" ? loading : <Outlet />}
+      <ToastContainer />
     </>
   );
 }

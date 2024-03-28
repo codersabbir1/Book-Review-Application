@@ -3,14 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { CiStar } from "react-icons/ci";
 
 function Book({ book }) {
+  const { id, bookName, author, image, rating, category, tags } = book;
+
   const navigate = useNavigate();
+
   const handleBookDetails = () => {
-    navigate("/sdfsdf");
+    navigate(`/${id}`);
   };
-  const { bookName, author, image, rating, category, tags } = book;
+
   return (
     <div
-      onClick={() => handleBookDetails()}
+      onClick={() => handleBookDetails(book)}
       className="border rounded-lg p-4 flex flex-col gap-4 cursor-pointer"
     >
       <div className="py-10 text-center bg-slate-200 flex flex-col justify-center items-center rounded-lg">
