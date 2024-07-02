@@ -29,7 +29,7 @@ Book Vibe is a vibrant online platform pulsating with literary energy, offering 
 - **step 1:** clone the Repository
 
 ```bash
-git clone https://github.com/fokhrul2029/React-with-LWS.git
+git clone https://github.com/fokhrul2029/Book-Vibe-Review.git
 ```
 
 - **step 2:** Install Dependency
