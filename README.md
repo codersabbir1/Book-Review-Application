@@ -21,3 +21,25 @@ Book Vibe is a vibrant online platform pulsating with literary energy, offering 
 ## Demo:
 
 - **Live Link:** https://book-vibe-app.surge.sh/
+
+## Clone and Run The Project
+
+**To clone and Run the project on your local Computer, Follow the steps:**
+
+- **step 1:** clone the Repository
+
+```bash
+git clone https://github.com/fokhrul2029/React-with-LWS.git
+```
+
+- **step 2:** Install Dependency
+
+```bash
+npm install
+```
+
+- **step 3:** Run on local computer
+
+```bash
+npm run dev
+```

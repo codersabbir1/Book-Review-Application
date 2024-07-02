@@ -58,13 +58,15 @@ function TabContents() {
         </div>
       </TabPanel>
       <TabPanel>
-        <div className="container mx-auto">
-          <div className="flex flex-col gap-4 w-full">
-            {wishedBooks.length > 0
-              ? wishedBooks.map((book) => (
-                  <BookCard key={book.id} book={book} />
-                ))
-              : dataUnavailable}
+        <div className="py-5">
+          <div className="container mx-auto">
+            <div className="flex flex-col gap-4 w-full">
+              {wishedBooks.length > 0
+                ? wishedBooks.map((book) => (
+                    <BookCard key={book.id} book={book} />
+                  ))
+                : dataUnavailable}
+            </div>
           </div>
         </div>
       </TabPanel>
