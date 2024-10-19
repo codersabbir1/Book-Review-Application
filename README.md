@@ -20,7 +20,7 @@ Book Vibe is a vibrant online platform pulsating with literary energy, offering 
 
 ## Demo:
 
-- **Live Link:** https://book-vibe-app.surge.sh/
+- **Live Link:** https://book-review-application-delta.vercel.app/
 
 ## Clone and Run The Project
 
@@ -29,7 +29,7 @@ Book Vibe is a vibrant online platform pulsating with literary energy, offering 
 - **step 1:** clone the Repository
 
 ```bash
-git clone https://github.com/fokhrul2029/Book-Vibe-Review.git
+git clone https://github.com/codersabbir1/Book-Review-Application
 ```
 
 - **step 2:** Install Dependency
